@@ -1,0 +1,320 @@
+#include<iostream> 
+#include<stdlib.h> 
+#include<typeinfo> 
+#include <exception> 
+#include<math.h> 
+#include<bitset> 
+#include <cstdlib> 
+#include<stdexcept> 
+#include <vector> 
+using namespace std; 
+int badalloc() 
+{ 
+int i, size; 
+cout<<"Enter size of array: "; 
+cin>>size;//If user enters size = 1000000000, exception occurs during DMA  
+ 
+int *ptr; 
+try 
+{ 
+ptr = new int[size];//Exception occurs during DMA if size > 10^9 
+} 
+catch(bad_alloc obj) 
+{ 
+cerr<<"Exception caught: "<<obj.what()<<endl; 
+cout<<"Exception was handled"<<endl; 
+return 1; 
+} 
+     
+  cout<<"Enter array elements: "; 
+  for(i=0; i<size; i++)  
+cin>>ptr[i]; 
+ 
+  cout<<"Elements in array: "; 
+  for(i=0; i<size; i++) 
+cout<<ptr[i]<<" ";    
+cout<<endl; 
+ 
+  delete [] ptr;        
+return 0; 
+} 
+ 
+int badcast() 
+{ 
+class A     
+{ 
+virtual void display() 
+{} 
+}; 
+class B:public A 
+{ 
+void display() 
+{} 
+}; 
+try 
+{ 
+A obj; 
+B pa=dynamic_cast<B>(&obj);   
+} 
+catch(bad_cast obj) 
+{ 
+cerr <<"Exception caught: "<<obj.what()<<'\n'; 
+return 1; 
+} 
+ 
+ 
+ 
+return 0; 
+} 
+ 
+ 
+int badtypeid() 
+{ 
+class Test 
+{ 
+public: 
+Test(); 
+virtual ~Test(); 
+}; 
+ 
+              Test *ptrvar = NULL; 
+ 
+              try { 
+ 
+               cout<<typeid(*ptrvar).name()<<endl; 
+                      } 
+catch (bad_typeid) 
+{ 
+cout<<"The object is NULL"<<endl; 
+} 
+ 
+ 
+return 0; 
+} 
+void new_unexpected() 
+{ 
+throw; 
+} 
+ 
+ 
+void test() throw(bad_exception) 
+     { 
+    throw 0; 
+    } 
+ 
+int badexception() 
+{  
+  set_unexpected(new_unexpected);  
+  new_unexpected; 
+   try 
+    { 
+         test(); 
+    } catch(bad_exception& e) 
+    { 
+        cout << "Caught "; 
+    } 
+ 
+ 
+return 0; 
+}    
+ 
+int domainerror() 
+{ 
+int a; 
+try 
+{cout<<"Enter a number to find the square root of the number!! "; 
+cin>>a; 
+if(a>=0)                 
+cout<<sqrt(a); 
+ 
+throw domain_error("please enter the positive number!"); 
+ 
+} 
+ 
+catch (exception &err) 
+ 
+{ 
+ 
+cerr<<"Caught: "<<err.what()<<endl; 
+ 
+cerr<<"Type: "<<typeid(err).name()<<endl; 
+ 
+}; 
+return 0; 
+ 
+} 
+ 
+int invalidargument() 
+{ 
+try 
+{ 
+bitset<32> bitset(string("0101001X01010110000")); 
+} 
+catch (exception &err) 
+{ 
+cerr<<"Caught "<<err.what()<<endl; 
+cerr<<"Type "<<typeid(err).name()<<endl; 
+ 
+}; 
+return 0; 
+} 
+ 
+int lengtherror() 
+{ 
+try { 
+      std::vector<int> myvector; 
+      myvector.resize(myvector.max_size()+1); 
+   } catch (const std::length_error& le) { 
+      std::cerr << "Length error: " << le.what() << '\n'; 
+   } 
+   return 0; 
+} 
+ 
+int outofrange() 
+{ 
+std::vector<int> myvector(10); 
+   try { 
+      myvector.at(20) = 100; 
+   } catch (const std::out_of_range& oor) { 
+      std::cerr << "Out of Range error: " << oor.what() << '\n'; 
+   } 
+   return 0; 
+} 
+ 
+int overflowerror() 
+{ 
+try 
+{ 
+bitset<100> bitset; 
+bitset[99] = 1; 
+bitset[0] = 1; 
+unsigned long Test = bitset.to_ulong(); 
+} 
+catch(exception &err) 
+{ 
+cerr<<"Caught "<<err.what()<<endl; 
+cerr<<"Type "<<typeid(err).name()<<endl; 
+}; 
+return 0; 
+} 
+ 
+int rangeerror() 
+{ 
+try 
+{ 
+throw range_error("Some error in the range!"); 
+} 
+catch(exception &Test) 
+{ 
+cerr<<"Caught: "<<Test.what()<<endl; 
+cerr<<"Type: "<<typeid(Test).name()<<endl; 
+}; 
+return 0; 
+} 
+void x() { 
+    throw std::underflow_error("it happened"); 
+} 
+int underflowerror() 
+{ 
+ 
+ try { 
+        x(); 
+    } catch(const std::exception& e) { 
+            std::cout << "caught " << e.what() << '\n'; 
+    } 
+ 
+return 0; 
+} 
+ 
+int main() 
+{ 
+int choice, flag=1; 
+cout<<endl<<"******** Assignment-1: Exception Handling ********"<<endl<<endl; 
+ 
+while(flag==1) 
+{ 
+cout<<"Choice of Exception Handling"<<endl; 
+cout<<"(1)std::exception (2)std::logic_error (3)std::runtime_error"<<endl; 
+cout<<"Enter your choice: "; 
+cin>>choice; 
+ 
+switch(choice) 
+{ 
+int choice2, temp; 
+case 1: 
+cout<<endl<<"Choices of std:exception"<<endl; 
+cout<<"(1)std::bad_alloc (2)std::bad_cast (3)std::bad_typeid (4)std::bad_exception"<<endl; 
+cout<<"Enter your choice: "; 
+cin>>choice2; 
+switch (choice2) 
+{ 
+case 1:  
+temp=badalloc(); 
+break; 
+case 2: 
+temp=badcast(); 
+break; 
+case 3: 
+temp=badtypeid(); 
+break; 
+case 4: 
+temp=badexception(); 
+break; 
+default: 
+cout<<"Wrong Choice of std::exception"<<endl; 
+} 
+break; 
+ 
+case 2: 
+cout<<endl<<"Choices of std:logic_error"<<endl; 
+cout<<"(1)std::domain_error (2)std::invalid_argument (3)std::length_error (4)std::out_of_range"<<endl; 
+cout<<"Enter your choice: "; 
+cin>>choice2; 
+switch (choice2) 
+{ 
+case 1:  
+temp=domainerror(); 
+break; 
+case 2: 
+temp=invalidargument(); 
+break; 
+case 3: 
+temp=lengtherror(); 
+break; 
+case 4: 
+temp=outofrange(); 
+break; 
+default: 
+cout<<"Wrong Choice of std::logic_error"<<endl; 
+} 
+break; 
+ 
+case 3: 
+cout<<endl<<"Choices of std:runtime_error"<<endl; 
+cout<<"(1)std::overflow_error (2)std::range_error (3)std::underflow_error"<<endl; 
+cout<<"Enter your choice: "; 
+cin>>choice2; 
+switch (choice2) 
+{ 
+case 1:  
+temp=overflowerror(); 
+break; 
+case 2: 
+temp=rangeerror(); 
+break; 
+case 3: 
+temp=underflowerror(); 
+break; 
+default: 
+cout<<"Wrong Choice of std::runtime_error"<<endl; 
+} 
+break; 
+ 
+}//end of switch 
+cout<<"Press 1 to repeat...else Press any other number to exit: "; 
+cin>>flag; 
+cout<<endl<<endl; 
+} 
+  return 0; 
+} 
+ 
