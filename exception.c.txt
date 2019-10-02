@@ -10,156 +10,124 @@
 using namespace std; 
 int badalloc() 
 { 
-int i, size; 
-cout<<"Enter size of array: "; 
-cin>>size;//If user enters size = 1000000000, exception occurs during DMA  
- 
-int *ptr; 
+     int i, size; 
+      cout<<"Enter size of array: "; 
+      cin>>size;//If user enters size = 1000000000, exception occurs during DMA  
+      int *ptr; 
 try 
 { 
-ptr = new int[size];//Exception occurs during DMA if size > 10^9 
+   ptr = new int[size];//Exception occurs during DMA if size > 10^9 
 } 
 catch(bad_alloc obj) 
 { 
-cerr<<"Exception caught: "<<obj.what()<<endl; 
-cout<<"Exception was handled"<<endl; 
-return 1; 
+   cerr<<"Exception caught: "<<obj.what()<<endl; 
+   cout<<"Exception was handled"<<endl; 
+   return 1; 
 } 
      
-  cout<<"Enter array elements: "; 
-  for(i=0; i<size; i++)  
-cin>>ptr[i]; 
- 
-  cout<<"Elements in array: "; 
-  for(i=0; i<size; i++) 
-cout<<ptr[i]<<" ";    
-cout<<endl; 
- 
-  delete [] ptr;        
-return 0; 
+   cout<<"Enter array elements: "; 
+   for(i=0; i<size; i++)  
+   cin>>ptr[i]; 
+   cout<<"Elements in array: "; 
+   for(i=0; i<size; i++) 
+   cout<<ptr[i]<<" ";    
+   cout<<endl; 
+   delete [] ptr;        
+   return 0; 
 } 
- 
 int badcast() 
 { 
 class A     
-{ 
-virtual void display() 
-{} 
-}; 
-class B:public A 
-{ 
-void display() 
-{} 
-}; 
+ { 
+virtual void display() {} 
+ }; 
+class B: public A 
+  { 
+    void display() {} 
+  }; 
 try 
 { 
-A obj; 
-B pa=dynamic_cast<B>(&obj);   
+   A obj; 
+   B pa=dynamic_cast<B>(&obj);   
 } 
-catch(bad_cast obj) 
+   catch(bad_cast obj) 
 { 
-cerr <<"Exception caught: "<<obj.what()<<'\n'; 
-return 1; 
+   cerr <<"Exception caught: "<<obj.what()<<'\n'; 
+   return 1; 
 } 
- 
- 
- 
-return 0; 
+  return 0; 
 } 
- 
- 
 int badtypeid() 
 { 
-class Test 
+   class Test 
 { 
-public: 
-Test(); 
-virtual ~Test(); 
+   public: 
+   Test(); 
+   virtual ~Test(); 
 }; 
- 
-              Test *ptrvar = NULL; 
- 
-              try { 
- 
-               cout<<typeid(*ptrvar).name()<<endl; 
-                      } 
-catch (bad_typeid) 
-{ 
-cout<<"The object is NULL"<<endl; 
-} 
- 
- 
+   Test *ptrvar = NULL; 
+   try { 
+     cout<<typeid(*ptrvar).name()<<endl; 
+       } 
+catch (bad_typeid) { 
+    cout<<"The object is NULL"<<endl; 
+    } 
 return 0; 
 } 
 void new_unexpected() 
-{ 
-throw; 
-} 
- 
- 
+  { 
+   throw; 
+  } 
 void test() throw(bad_exception) 
      { 
-    throw 0; 
+        throw 0; 
     } 
- 
 int badexception() 
 {  
-  set_unexpected(new_unexpected);  
-  new_unexpected; 
-   try 
+   set_unexpected(new_unexpected);  
+    new_unexpected; 
+     try 
     { 
          test(); 
-    } catch(bad_exception& e) 
+    } 
+    catch(bad_exception& e) 
     { 
         cout << "Caught "; 
     } 
- 
- 
-return 0; 
+ return 0; 
 }    
- 
 int domainerror() 
 { 
-int a; 
-try 
-{cout<<"Enter a number to find the square root of the number!! "; 
-cin>>a; 
-if(a>=0)                 
-cout<<sqrt(a); 
- 
-throw domain_error("please enter the positive number!"); 
- 
-} 
- 
+    int a; 
+     try 
+{
+     cout<<"Enter a number to find the square root of the number!! "; 
+     cin>>a; 
+    if(a>=0)                 
+    cout<<sqrt(a); 
+     throw domain_error("please enter the positive number!"); 
+ } 
 catch (exception &err) 
  
-{ 
- 
-cerr<<"Caught: "<<err.what()<<endl; 
- 
-cerr<<"Type: "<<typeid(err).name()<<endl; 
- 
+ { 
+    cerr<<"Caught: "<<err.what()<<endl; 
+    cerr<<"Type: "<<typeid(err).name()<<endl; 
 }; 
-return 0; 
- 
+   return 0; 
 } 
- 
-int invalidargument() 
-{ 
-try 
-{ 
-bitset<32> bitset(string("0101001X01010110000")); 
-} 
-catch (exception &err) 
-{ 
-cerr<<"Caught "<<err.what()<<endl; 
-cerr<<"Type "<<typeid(err).name()<<endl; 
- 
+     int invalidargument() 
+      { 
+     try { 
+     bitset<32> bitset(string("0101001X01010110000")); 
+        } 
+    catch (exception &err) 
+    { 
+   cerr<<"Caught "<<err.what()<<endl; 
+   cerr<<"Type "<<typeid(err).name()<<endl; 
 }; 
-return 0; 
+     return 0; 
 } 
- 
-int lengtherror() 
+ int lengtherror() 
 { 
 try { 
       std::vector<int> myvector; 
@@ -169,7 +137,6 @@ try {
    } 
    return 0; 
 } 
- 
 int outofrange() 
 { 
 std::vector<int> myvector(10); 
@@ -197,8 +164,7 @@ cerr<<"Type "<<typeid(err).name()<<endl;
 }; 
 return 0; 
 } 
- 
-int rangeerror() 
+ int rangeerror() 
 { 
 try 
 { 
@@ -230,15 +196,13 @@ int main()
 { 
 int choice, flag=1; 
 cout<<endl<<"******** Assignment-1: Exception Handling ********"<<endl<<endl; 
- 
-while(flag==1) 
+ while(flag==1) 
 { 
 cout<<"Choice of Exception Handling"<<endl; 
 cout<<"(1)std::exception (2)std::logic_error (3)std::runtime_error"<<endl; 
 cout<<"Enter your choice: "; 
 cin>>choice; 
- 
-switch(choice) 
+ switch(choice) 
 { 
 int choice2, temp; 
 case 1: 
@@ -264,8 +228,7 @@ default:
 cout<<"Wrong Choice of std::exception"<<endl; 
 } 
 break; 
- 
-case 2: 
+ case 2: 
 cout<<endl<<"Choices of std:logic_error"<<endl; 
 cout<<"(1)std::domain_error (2)std::invalid_argument (3)std::length_error (4)std::out_of_range"<<endl; 
 cout<<"Enter your choice: "; 
@@ -288,8 +251,7 @@ default:
 cout<<"Wrong Choice of std::logic_error"<<endl; 
 } 
 break; 
- 
-case 3: 
+ case 3: 
 cout<<endl<<"Choices of std:runtime_error"<<endl; 
 cout<<"(1)std::overflow_error (2)std::range_error (3)std::underflow_error"<<endl; 
 cout<<"Enter your choice: "; 
@@ -309,8 +271,7 @@ default:
 cout<<"Wrong Choice of std::runtime_error"<<endl; 
 } 
 break; 
- 
-}//end of switch 
+ }//end of switch 
 cout<<"Press 1 to repeat...else Press any other number to exit: "; 
 cin>>flag; 
 cout<<endl<<endl; 
