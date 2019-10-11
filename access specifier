@@ -1,0 +1,25 @@
+#include <iostream> 
+#include <string> 
+using namespace std; 
+class person{ 
+    protected : 
+    string name;                       // it is avaible in this as well as class which is inherited by this class 
+    public:                                  // we can't acess "name" outside this scope                            
+     void setname(string iname){ 
+        name = iname; 
+     } 
+}; 
+
+class student : public person{ 
+    public : 
+    void display(){ 
+        cout << name << endl; 
+   } 
+}; 
+int main() 
+{ 
+   student anil; 
+    anil.setname("anil"); 
+   anil.display(); 
+   return 0; 
+} 
