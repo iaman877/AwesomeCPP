@@ -1,0 +1,26 @@
+#include <iostream> 
+using namespace std; 
+class person                                          // Base class  
+{ 
+    public : 
+     person(){ 
+         cout<<" contructor of the person class called "<<endl; 
+     } 
+     ~person(){ 
+         cout<<" distructor of the person class called "<<endl; 
+     } 
+};  
+class Student : public person                                      // derived class 
+ { 
+    public : 
+      Student(){ 
+         cout<<" contructor of the student  class called "<<endl;} 
+     ~Student(){ 
+         cout<<" distructor of the student  class called "<<endl;} 
+}; 
+int main() 
+{ 
+   person anil; 
+   return 0; 
+
+}
