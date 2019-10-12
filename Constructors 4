@@ -2,8 +2,8 @@
 using namespace std; 
 class student { 
 private : 
-    int regNo; 
-    string name; 
+     int regNo; 
+     string name; 
 public : 
     student(int no, string myname):regNo(no),name(myname){}         //intialization list 
     int getRegno(){ 
