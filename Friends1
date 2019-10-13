@@ -1,0 +1,27 @@
+#include <iostream> 
+using namespace std; 
+class A  
+{ 
+    private : 
+      int a,b; 
+    public : 
+    void input() 
+    { 
+        cout<<"enter the a number "; 
+        cin>>a; 
+        cout<<"enter the another value "; 
+        cin>>b; 
+    } 
+friend float mean(A obj); 
+}; 
+float mean(A obj) 
+{ 
+    return float(obj.a + obj.b)/2; 
+} 
+int main() 
+{ 
+   A obj; 
+   obj.input(); 
+   cout<<"Mean is : "<<mean(obj); 
+    return 0; 
+} 
