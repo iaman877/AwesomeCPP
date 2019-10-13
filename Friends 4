@@ -1,0 +1,26 @@
+#include <iostream> 
+using namespace std; 
+class student 
+{ 
+  private: 
+       string name; 
+  public : 
+      friend void printNmae(student stud);    // stud  optional and it is non member  function  
+        void setName(); 
+}; 
+ void student :: setName() 
+ { 
+    cout<<"enter the student name"; 
+    cin>>name; 
+ } 
+ void printNmae(student stud) 
+ { 
+    cout<<stud.name<<endl; 
+ } 
+int main() 
+{ 
+    student stud1; 
+    stud1.setName(); 
+    printNmae(stud1); 
+    return 0; 
+} 
