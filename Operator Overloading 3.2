@@ -1,0 +1,33 @@
+#include <iostream> 
+using namespace std; 
+class Marks 
+{ 
+    int marks ; 
+    public : 
+     Marks(){         
+         marks = 0; 
+     } 
+     Marks(int m){   
+         marks = m; 
+     } 
+     void yourMarksplease () {         
+         cout<<"your marks is "<<marks<<endl; 
+     } 
+     Marks operator++(){        
+      marks += 1; 
+      return *this; 
+     } 
+     friend Marks operator--(Marks &m);            
+}; 
+Marks operator--(Marks &m){                        
+    m.marks -= 1; 
+    return m; 
+    } 
+int main() 
+{ 
+    Marks aman(100); 
+    aman.yourMarksplease(); 
+    (++aman).yourMarksplease(); 
+    (++aman).yourMarksplease(); 
+    return 0; 
+} 
