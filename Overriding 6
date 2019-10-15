@@ -2,7 +2,7 @@
 using namespace std; 
 class Person{ 
     public : 
-      void introduce(){ 
+       void introduce(){ 
           cout<<" hi i am a person "<<endl; 
       } 
 }; 
