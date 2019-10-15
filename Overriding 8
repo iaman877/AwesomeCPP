@@ -1,0 +1,40 @@
+#include <iostream> 
+using namespace std; 
+class shape 
+{ 
+    protected: 
+     int side1,side2; 
+     public : 
+     shape(int a =5 , int b =2)         // constructor of shape class  
+     { 
+         side1 = a;        // width = 0 
+         side2 = b;        // height  = 0 
+     } 
+     void area() 
+     { 
+         cout<<"def. deault in derived class  "<<endl; 
+     } 
+}; 
+class rectangle : public shape       // Rectangle class inherits  
+{ 
+    int height, width; 
+    float result; 
+    public : 
+    rectangle(int a =30 , int b =10 ) : shape(a,b)       // intialization list  
+    { 
+        height = side1; 
+        width = side2; 
+    } 
+    void area() 
+    { 
+        result = height*width; 
+        cout<<"Arae of Rectangle "<<result<<endl; 
+    } 
+}; 
+int main() 
+{ 
+   rectangle rec; 
+   rec.shape::area();    // call to base class's area() 
+   rec.area();         // call to derived class's area() 
+    return 0; 
+} 
