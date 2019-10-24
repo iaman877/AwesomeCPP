@@ -1,0 +1,16 @@
+
+#include <iostream> 
+using namespace std; 
+union emp{ 
+    int id; 
+    float sal; 
+}anil,ras; 
+int main() 
+{ 
+    emp akshay,anjali; 
+    anjali.id = 25;
+    cout<<anjali.id; 
+    return 0; 
+} 
+
+ 
