@@ -1,0 +1,25 @@
+#include <iostream> 
+using namespace std; 
+class one  
+ { 
+     mutable int a;     // through mutable we can update the fuction contain const keyword  
+             int b; 
+     public : 
+       one() 
+        { 
+            a=10; 
+            b=11; 
+        } 
+    void shown() const 
+      { 
+          a = 40; 
+          cout<<a<<endl; 
+          cout<<b; 
+      } 
+ }; 
+int main() 
+{ 
+   one ob; 
+   ob.shown(); 
+    return 0; 
+} 
