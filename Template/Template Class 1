@@ -1,0 +1,28 @@
+#include <iostream> 
+using namespace std; 
+template < class T > 
+class sum  
+{ 
+    T a,b, sum; 
+    public : 
+     void get() 
+      { 
+          cout<<" enter two numbers "; 
+           cin>>a>>b; 
+      } 
+      T add() 
+      { 
+          sum = a+b; 
+          return sum; 
+      } 
+}; 
+int main() 
+{ 
+    sum < int > obj; 
+    obj.get(); 
+    cout<<"result "<<obj.add()<<endl; 
+    sum<float>obj1; 
+    obj1.get(); 
+    cout<<"Result : "<<obj1.add()<<endl; 
+    return 0; 
+} 
