@@ -1,0 +1,20 @@
+#include <iostream> 
+using namespace std; 
+template <class T> 
+T Max(T a, T b)                  // variable a and b, function return type are all of type T 
+{ 
+    if(a<b) 
+     return b; 
+    else 
+     return a; 
+} 
+int main() 
+{ 
+    int i = 39; 
+    int j = 20; 
+    cout<<"Max(i,j) "<<Max<int>(i,j)<<endl; 
+    double f1 = 13.5; 
+    double f2 = 20.7; 
+    cout<<"Max(f1,f2): "<<Max<float>(f1,f2)<<endl; 
+    return 0; 
+} 
