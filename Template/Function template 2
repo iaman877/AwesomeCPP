@@ -1,0 +1,12 @@
+#include <iostream> 
+using namespace std; 
+template <class U> void display(U x){           //<typename> and here U is an identifier   
+cout<<"you have passed "<< x << endl; 
+}          
+int main() 
+{ 
+   display(10); 
+   display(1.2345); 
+   display(" Aman Bhardwaj is rock "); 
+    return 0; 
+}
