@@ -17,6 +17,6 @@ template <typename T> void WhatYouGet(T x)
 void WhatYouGet(int x) 
 //template <> void WhatYouGot<int>(int x) 
 { 
-    cout<<"inside what you got in nomal function "<<endl; 
-    cout<<"i got x "<<x<<endl; 
+     cout<<"inside what you got in nomal function "<<endl; 
+     cout<<"i got x "<<x<<endl; 
 } 
