@@ -1,0 +1,26 @@
+#include <iostream> 
+#include <stdarg.h> 
+using namespace std; 
+int add(int cnt, ...); 
+int main() 
+{ 
+    cout<<"result-1 using 3 arguments = "<<add(2,2,3)<<endl; 
+    cout<<"result-2 using 5 arguments = "<<add(4,2,3,4,5)<<endl; 
+    return 0; 
+} 
+int add(int num, ...) 
+ { 
+     va_list valist;   //va_list used to store the value of argument     
+     int i, sum=0; 
+     va_start(valist, num);    // start handling varble length args. 
+     for(i=0;i<num;i++) 
+     { 
+         sum = sum + va_arg(valist, int);   // access argument in order 
+     } 
+     va_end(valist);          // end handling varible length arg 
+     return sum; 
+ } 
+
+ 
+
+ 
