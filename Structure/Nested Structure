@@ -1,0 +1,30 @@
+#include <iostream> 
+using namespace std; 
+int main() 
+{ 
+    struct DOB  
+    { 
+        int day,month,year; 
+    }; 
+    struct student 
+    { 
+        int roll; 
+        char name[20]; 
+        float fees; 
+        struct DOB date; 
+    }; 
+    student stud1; 
+    cout<<"\n enter the roll no "; 
+    cin>>stud1.roll; 
+    cout<<"\n enter the name :"; 
+    cin>>stud1.name; 
+    cout<<"\n enter the fees :"; 
+    cin>>stud1.fees; 
+    cout<<"enter the DOB : "; 
+    cin>>stud1.date.day>>stud1.date.month>>stud1.date.year; 
+    cout<<"***************************************************************************"; 
+    cout<<stud1.roll<<endl; 
+    cout<<stud1.name<<endl; 
+    cout<<stud1.fees<<endl; 
+    cout<<"\t"<<stud1.date.day<<"\t"<<stud1.date.month<<"\t"<<stud1.date.year<<endl; 
+} 

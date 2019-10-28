@@ -1,0 +1,30 @@
+#include <iostream> 
+using namespace std; 
+template <class T, class U>                     
+class AreaTri 
+{ 
+    T base, height; 
+    U area; 
+     public : 
+    void get() 
+     { 
+         cout<<"enter the base and height :"; 
+         cin>>base>>height; 
+     } 
+     U find() 
+     { 
+         area = (U)base*height/2; 
+         return area; 
+     } 
+}; 
+int main() 
+{ 
+
+    AreaTri < int , float > obj;                     
+    obj.get(); 
+    cout<<"result : "<<obj.find()<<endl; 
+    AreaTri < float , float > obj1; 
+    obj1.get(); 
+    cout<<"result : "<<obj1.find()<<endl; 
+    return 0; 
+} 

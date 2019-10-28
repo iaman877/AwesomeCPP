@@ -1,0 +1,22 @@
+#include<iostream> 
+using namespace std; 
+template <typename T> void WhatYouGet(T x); 
+void WhatYouGet(int x);       // or template <> void WhatYouGot<int>(int x) 
+int main() 
+{ 
+    WhatYouGet(23.456); 
+    WhatYouGet(22); 
+    WhatYouGet("aman Bhardwaj"); 
+    return 0; 
+} 
+template <typename T> void WhatYouGet(T x) 
+{ 
+    cout<<"inside whatyougot geneic function "<<endl; 
+    cout<<"i got x "<<x<<endl; 
+} 
+void WhatYouGet(int x) 
+//template <> void WhatYouGot<int>(int x) 
+{ 
+     cout<<"inside what you got in nomal function "<<endl; 
+     cout<<"i got x "<<x<<endl; 
+} 

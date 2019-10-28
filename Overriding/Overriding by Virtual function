@@ -1,0 +1,55 @@
+#include <iostream>  
+using namespace std;  
+class Shape  
+{  
+protected :  
+int side1 , side2 ;  
+public :  
+Shape(int a, int b)   // contructor of shape class  
+{  
+      side1 = a;  
+         side2 = b;  
+     }  
+     virtual void area()                    //virtual function defn. in base class  
+     {  
+         cout<<"enter the base and height of tringle ";  
+         cin>>side1>>side2;  
+         cout<<"Area of the triangle :"<<0.5*side1*side2<<endl;  
+     }  
+    void demo()  
+     {  
+         cout<<"base demo()"<<endl;  
+     }  
+};  
+class Rectangle : public Shape              // Rectangle class inhrits class shape  
+{  
+    public :  
+     Rectangle(int a1=0, int b1=0) : Shape(a1, b1) {} 
+     void area()                                        //ovrridden defn.of area() 
+     {            
+         cout<<" Enter length and breath of rectangle : ";  
+          cin>>side1>>side2;  
+          cout<<"Area of rectangle :"<<side1*side2<<endl;  
+}  
+     void demo()                        // reden.  
+     {  
+         cout<<" Derived Demo()"<<endl;  
+     }  
+     void demo1()  
+     {  
+         cout<<" Another derived demo() "<<endl;  
+     }  
+};  
+int main()  
+{  
+    Rectangle rec;  
+    Shape *shape;            // mandory for overridin at run time 
+    Shape shape(0,0);      // normal base class object can be created without overridding  
+    shape = &rec;            // mandory for overridding at runtime  
+    shape->area();            // callto derived class's area()  
+    shape->demo();            // call base class's area() 
+    shape -> Shape::area();  // call to the base class's virtual difinition of area() 
+    shape->demo();  
+    //shape ->demo1()           // illegal as base class does not have demo1() 
+    return 0;  
+} 
