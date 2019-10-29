@@ -19,7 +19,7 @@ class student : public person
  }; 
 int main() 
 { 
-   student anil; 
-   anil.display(); 
+   student aman; 
+   aman.display(); 
     return 0; 
 } 
