@@ -1,0 +1,25 @@
+#include <iostream> 
+#include<string> 
+using namespace std; 
+class person 
+ { 
+   public : 
+        string name; 
+        void setname(string iname) 
+        {
+           name = "iname";
+        } 
+ }; 
+class student : public person 
+{ 
+     public: 
+     void display(){ 
+     cout<<name<<endl; 
+     } 
+ }; 
+int main() 
+{ 
+   student anil; 
+   anil.display(); 
+    return 0; 
+} 
