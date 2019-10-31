@@ -1,0 +1,27 @@
+#include <iostream> 
+#include <string> 
+using namespace std; 
+class person{ 
+    public : 
+    void introduce(){ 
+        cout<<"hey from student "<<endl; 
+    } 
+}; 
+class student : public person { 
+    public : 
+     void introduce(){ 
+         cout<<" hey from person "<<endl; 
+     } 
+}; 
+void WhosThis(person &p){ 
+    p.introduce(); 
+} 
+int main() 
+{
+
+   student anil; 
+   anil.introduce(); 
+   WhosThis(anil); 
+    return 0; 
+
+} 
