@@ -1,4 +1,6 @@
-Run C++ program on terminal using gcc compiler 
+# Algorithm & data strucutre using C++
+
+#  Run C++ program on terminal using gcc compiler 
 
 
 Step 1. Open linux terminal.
