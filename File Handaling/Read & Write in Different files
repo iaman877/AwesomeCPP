@@ -1,0 +1,36 @@
+#include <iostream> 
+#include <fstream> 
+using namespace std; 
+int main() 
+{ 
+    ofstream outfile; 
+    outfile.open("Question"); 
+    outfile<<"\n who is the prime minister of India"; 
+    outfile<<"\n which virus is spread in Africa "; 
+    outfile<<"\n who won the fifa world cup in 2018 "; 
+    outfile.close(); 
+    outfile.open("Ansswer"); 
+    outfile<<"\n Narendre modi"; 
+    outfile<<"\n Ebola"; 
+    outfile<<"\n russia "; 
+    outfile.close(); 
+    char quest[80], ans[20]; 
+    ifstream inpFile; 
+    inpFile.open("Question"); 
+    cout<<"\n*************sample question for quitz **************************"; 
+    while(inpFile.eof()==0) 
+     { 
+         inpFile.getline(quest, 80); 
+         cout<<"\n "<<quest; 
+     } 
+     inpFile.close(); 
+     inpFile.open("Ansswer"); 
+     cout<<"\n \n *********Ansswer for sample quitz*****************************"; 
+     while(inpFile.eof()==0) 
+     { 
+         inpFile.getline(ans , 20); 
+         cout<<"\n"<<ans; 
+     } 
+     inpFile.close(); 
+    return 0; 
+} 
