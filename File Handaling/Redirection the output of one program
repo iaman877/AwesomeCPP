@@ -1,0 +1,9 @@
+#include <iostream> 
+using namespace std; 
+int main() 
+{ 
+    cout<<"\n hello word cout "; 
+    cerr<<"\n hello word cerr"; 
+    clog<<"\n hello c++ clog"; 
+    return 0; 
+} 
