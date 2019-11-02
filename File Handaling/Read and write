@@ -1,0 +1,24 @@
+#include <iostream> 
+#include <fstream> 
+using namespace std; 
+int main() 
+{ 
+     char name[100];  // creat an object and open the file usng constructure 
+    float salary; 
+    ofstream outfile("Employee"); 
+    for(int i=0;i<3;i++) 
+    { 
+        cout<<"enter the name and salary of the employee "<<i+1<<" "; 
+        cin>>name>>salary; 
+        outfile<<"\n"<<name<<"\t"<<salary;    //write to the file  
+    } 
+    outfile.close();       // close the file after writtng the data  
+    ifstream inpFile("Employee");   // open the file for reading the data  
+    for(int i=0;i<3;i++) 
+    { 
+      inpFile>>name>>salary; 
+      cout<<"\n Employee"<<i+1<<" : "<<name<<"\t "<<salary; 
+   } 
+     inpFile.close(); 
+  return 0; 
+} 
