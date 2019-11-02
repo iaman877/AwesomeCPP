@@ -1,0 +1,34 @@
+#include <iostream> 
+#include <fstream> 
+using namespace std; 
+int main() 
+{ 
+    char name[10]; 
+    float sal; 
+    ofstream outfile; 
+    outfile.open("Employee"); 
+    if(!outfile) 
+    { 
+        cout<<"\n file could not be opened"; 
+        exit(1); 
+    } 
+    for(int i =0;i<3;i++) 
+     { 
+         cout <<"enter the name and salary of the Employee"<<i+1<<" "; 
+         cin>>name>>sal; 
+         outfile<<"\n "<<name<<"\t"<<sal; 
+     } 
+outfile.close(); 
+ifstream inpFile("Employee"); 
+if(! inpFile)     // chesk if file was opened sucessfully  
+{ 
+    cout<<"\n file could not be opened "; 
+    exit(1); 
+} 
+for(int i=0;i<3;i++) 
+{ 
+    inpFile>>name>>sal; 
+} 
+inpFile.close(); 
+return 0; 
+} 
