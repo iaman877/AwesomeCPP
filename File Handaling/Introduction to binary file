@@ -1,0 +1,27 @@
+#include <iostream> 
+#include <fstream> 
+#include <cstring> 
+using namespace std; 
+int main()
+{ 
+    char input[100]; 
+    strcpy(input,"INTERNET OF EVERYTHING"); 
+    fstream file("Amna.bin",ios::binary|ios::in|ios::out|ios::trunc); 
+    if(!file.is_open()){ 
+        cout<<"error while openin the file"; 
+    } 
+    else{ 
+            int length = strlen(input); 
+        for(int counter = 0 ; counter<=length; counter++) 
+         { 
+             file.put(input[counter]); 
+         } 
+         file.seekg(0);           // read arraay from begning 
+         char ch; 
+         while(file.good()) 
+         { 
+             file.get(ch);         // first store read charater by charector each time 
+             cout<<ch; 
+         } 
+    } 
+} 
