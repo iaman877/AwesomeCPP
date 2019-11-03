@@ -1,0 +1,45 @@
+#include <iostream> 
+#include <fstream> 
+#include <cstring> 
+using namespace std; 
+class Person{ 
+    char name[50]; 
+     int age; 
+public: 
+    Person(){ 
+    strcpy(name,"Jai gurudev"); 
+    age = 18; 
+    } 
+    Person(char *name, int age){ 
+    strcpy(this->name,name); 
+    this->age = age; 
+    } 
+    void get(){ 
+    cout<<"hi i am " <<name<<" amd i am "<<age<<" year old "<<endl; 
+    } 
+   void change(){ 
+     strcpy(name,"Arpit"); 
+     age = 19; 
+    } 
+}; 
+int main() 
+{ 
+    Person obj;("Aman",24); 
+    fstream file("Person.bin",ios::binary|ios::in|ios::out|ios::trunc); 
+    if(!file.is_open()) 
+    { 
+        cout<<"error while opennin the file "; 
+    } 
+    else{ 
+        file.write((char *)&obj,sizeof(Person)); 
+     file.seekg(0); 
+      Person obj1; 
+      file.read((char *)&obj1,sizeof(Person)); 
+      obj.get(); 
+      obj1.get(); 
+      obj.change(); 
+      obj.get(); 
+      obj1.get(); 
+    }
+    return 0; 
+} 
