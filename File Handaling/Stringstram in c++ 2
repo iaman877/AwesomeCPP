@@ -1,0 +1,15 @@
+#include <iostream> 
+#include <sstream>         // string stream 
+using namespace std; 
+int main() 
+{ 
+    string number = "44"; 
+    stringstream sso; 
+    sso <<number; 
+    int input; 
+    sso >> input; 
+    cout<< input<<endl; 
+    cout<< input+2<<endl; 
+    cout<< number+"2"<<endl; 
+    return 0; 
+} 
