@@ -1,0 +1,16 @@
+#include <iostream> 
+#include <sstream>         // string stream 
+using namespace std; 
+int main() 
+{ 
+    cout<<"enter the integer vlaue   "; 
+    int input; 
+    cin>>input; 
+    stringstream sso;      // sso is object of stringstream type  
+    sso<< input; 
+    string strinput; 
+    sso>> strinput; 
+    cout<<"the integer number "<<input<<endl; 
+    cout<<"the string form of integer number "<<strinput<<endl; 
+    return 0; 
+} 
