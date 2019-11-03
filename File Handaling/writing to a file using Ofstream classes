@@ -1,0 +1,19 @@
+#include <iostream> 
+#include <fstream> 
+using namespace std; 
+int main() 
+{ 
+    ofstream file("Aman.txt"); 
+    if(!file.is_open())                        // bydefault open & trunk mode has opened 
+    { 
+        cout<<"unable to open the fie "<<endl; 
+    } 
+    else{ 
+        file <<"INTERNET OF EVERYTHING<<endl"; 
+        file <<"ADS will come soon"; 
+        file.close(); 
+        } 
+     cout<<"suceesfully aritten to the the file open it and chech it out "; 
+    return 0; 
+
+} 
