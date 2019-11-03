@@ -2,6 +2,7 @@
 #include <fstream> 
 using namespace std; 
 int main() 
+{
     ofstream fout;                    // fout is object 
     fout.open("mylif.dat");            // call and connect file 
     fout<<"hello";                     // like cout 
