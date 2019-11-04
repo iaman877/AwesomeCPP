@@ -1,0 +1,18 @@
+#include <iostream> 
+#include <stdexcept> 
+using namespace std; 
+int main() 
+{ 
+    int a = 10 , b = 0, c; 
+    try                        // in try we place that code which might produce error  
+    {                     
+     if(b == 0 ) 
+     throw runtime_error ("dividw by zero error ");      // string  
+     c = a/b; 
+     cout<<c<<endl; 
+     }catch(runtime_error &error){           // catch is useed for handeling the exception 
+         cout<<" exception occured "<<endl; 
+         cout<<error.what(); 
+     } 
+    return 0; 
+} 
