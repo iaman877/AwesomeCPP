@@ -1,0 +1,19 @@
+#include <iostream> 
+#include <exception> 
+using namespace std; 
+int main() 
+{ 
+    try  
+    { 
+        throw 20;          // it will call the second catch block 
+    } 
+     catch(const char *e) 
+     {           
+         cout<<e<<endl; 
+     } 
+     catch(int error)                     
+     {           
+         cout<<error<<endl; 
+     } 
+    return 0; 
+} 
