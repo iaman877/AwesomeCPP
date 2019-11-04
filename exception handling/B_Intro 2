@@ -1,0 +1,20 @@
+#include <iostream> 
+#include <stdexcept> 
+using namespace std; 
+int main() 
+{ 
+    try{ 
+        throw runtime_error("run time error ");      // call third catch block 
+    } 
+    catch(int error){ 
+        cout<<error<<endl; 
+    } 
+    catch(const char *err){ 
+        cout<<err<<endl; 
+    } 
+    catch(runtime_error e){ 
+        cout<<e.what()<<endl;                         // e is object of runtime_error class 
+    } 
+
+    return 0; 
+} 
