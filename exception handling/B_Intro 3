@@ -1,0 +1,14 @@
+#include <iostream> 
+#include <stdexcept> 
+using namespace std; 
+int main() 
+{ 
+    try{ 
+        throw runtime_error("aman"); 
+        // or throw 20; 
+    }    
+    catch(...){             //  now c++ called catch for any type of exception 
+        cout<<" some exception occured " <<endl; 
+    } 
+    return 0; 
+} 
