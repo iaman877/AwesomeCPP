@@ -1,0 +1,18 @@
+#include <iostream> 
+# include <iomanip> 
+using namespace std; 
+ostream &rightArrow(ostream &output){       // Manupulator function witch takes input stream 
+    output<< "cool name man ----> "; 
+    return output; 
+} 
+istream &getName(istream &input){           // Manupulator function witch takes output stream 
+cout<<"enter your name please "<<endl; 
+  return input; 
+} 
+int main() 
+{ 
+  string name; 
+  cin>>getName >> name; 
+  cout << rightArrow << name; 
+  return 0; 
+} 
