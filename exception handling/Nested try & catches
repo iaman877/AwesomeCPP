@@ -1,0 +1,23 @@
+#include <iostream> 
+#include <stdexcept> 
+using namespace std; 
+int main() 
+{ 
+    try{ 
+        try{                                      // inner try 
+            throw " a character exception "; } 
+              catch(const  char *e){ 
+
+                cout<<"character type in inner block ---> "<<e<<endl;  
+                cout<<" rethrow the exception "<<endl; 
+                throw; 
+           // throw runtime_error("qwert");                                  //it will call outer block 
+            } 
+        } 
+        catch(const  char *e){ 
+            cout<<"character type in outer block ---> "<<e<<endl; } 
+       // catch(...){ 
+           // cout<<"unexpected exception in outer block ---> "<<e<<endl; } 
+    return 0; 
+
+}
