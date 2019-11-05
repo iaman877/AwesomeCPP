@@ -1,0 +1,27 @@
+
+#include <iostream> 
+using namespace std; 
+void test() throw (int , char, runtime_error)      // specify multiple type of exception (as a parameter of throw) 
+{ 
+    throw 20;                 // call 1st catch block 
+} 
+int main() 
+{ 
+    try 
+    { 
+        test(); 
+    } 
+    catch(int e) 
+    { 
+        cout<<"integer type "<<e<<endl; 
+    } 
+    catch(char c) 
+    { 
+        cout<<"character   type "<<c<<endl; 
+    } 
+     catch(runtime_error r) 
+    { 
+        cout<<"  runtime_error type "<<r.what()<<endl; 
+    } 
+    return 0; 
+} 
