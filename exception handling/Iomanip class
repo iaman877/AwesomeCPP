@@ -1,0 +1,11 @@
+#include <iostream> 
+# include <iomanip> 
+using namespace std; 
+int main() 
+{ 
+  cout << "hi "<<endl; 
+  cout<< hex << 100 << endl;                    // printout 100 as hexadecimal number 
+  cout<< setw(10) << setfill('0')<<"aman"<<endl; 
+  cout<< "Bhardwaj"; 
+  return 0; 
+} 
