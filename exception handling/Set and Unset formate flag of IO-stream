@@ -1,0 +1,14 @@
+
+#include <iostream> 
+using namespace std; 
+int main() 
+{ 
+   //cout.setf(ios::showpos | ios :: showpoint );      // these are two flag separated by | operator 
+   //cout.unsetf(ios :: showpos );                      // it will unset showpos function 
+   auto flag = ios :: showpos | ios :: showpoint | ios :: showbase;      // set all flags 
+   cout.flags(flag);                                                      // both the line are syntx 
+   cout << 100 << endl; 
+   cout << 100.2 <<endl; 
+   cout<< -89.8 <<endl; 
+   return 0; 
+} 
