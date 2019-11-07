@@ -1,0 +1,29 @@
+#include <iostream> 
+using namespace std; 
+class dog{ 
+  public : 
+   string m_name; 
+   dog(string name) 
+    { 
+        m_name =name; 
+        cout<<m_name<< " is born "<<endl; 
+    } 
+  ~dog() 
+   { 
+       cout<<m_name<<"is distroyed \n "<<endl;  
+   } 
+   void bark() {} 
+}; 
+int main() 
+{ 
+    try{ 
+
+        dog obj1("Aman"); 
+        dog obj2("pawan"); 
+        throw 20; 
+        obj1.bark(); 
+        obj2.bark(); 
+    }catch(int e) { 
+        cout<<e<<" is caught "<<endl; 
+    } 
+} 
