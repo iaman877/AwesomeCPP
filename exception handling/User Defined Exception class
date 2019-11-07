@@ -1,0 +1,47 @@
+#include <iostream> 
+#include <stdexcept> 
+using namespace std; 
+class overspeed : public exception{     // user define ex class by inheriting exception class  
+    int speed; 
+    public : 
+    const char* what() { 
+        return " chech out your spped \n you are in the car not in aroplane \n"; 
+    } 
+    void getspeed(){ 
+        cout<<" your car spped  "<<speed<<endl; 
+    } 
+    void setspeed(int speed ){ 
+        this ->speed = speed; 
+    } 
+}; 
+class Car{           // this is that class where exception will thrown 
+    int speed; 
+     public : 
+      Car(){ 
+          speed =0; 
+          cout<<" speed is zero "<<endl; 
+      } 
+      void acceleration (){ 
+          for(;;){ 
+              speed += 10; 
+               cout<<" your car spped  "<<speed<<endl; 
+                if(speed >=250){ 
+                    overspeed s;           
+                     s.setspeed(speed); 
+                      throw s; 
+                } 
+          } 
+      } 
+}; 
+int main() 
+{ 
+    Car aman;   
+    try{                    // Car class throw an exception that's why we use try 
+        aman.acceleration(); 
+    } 
+        catch(overspeed s){ 
+            cout<<s.what()<<endl; 
+            s.getspeed(); 
+        } 
+    return 0; 
+} 
