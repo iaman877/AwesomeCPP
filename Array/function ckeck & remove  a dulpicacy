@@ -1,0 +1,11 @@
+int MossingNumner(int *input, int size)
+ {
+    long long sum=o;
+    for(int i = 0; i< size; i++)
+      sum += input[i];
+   int n = size;
+  
+ // sum of all natural number from 0 to n-2,as array contain till n 
+   int sumofnaturals = ((n-1)*(n-2))/2;
+ // subtract to get a missing number 
+       return sum-sumofnaturals;
