@@ -1,0 +1,21 @@
+#include<iostream> 
+using namespace std; 
+struct node 
+{ 
+    int data;                  // 2 bytes  
+    struct node *next;       // 2 bytes (for any pointer) 
+}; 
+int main() 
+{ 
+    struct node a,b,c;       // a = 4 , b = 4, c = 4  total = 12 bytes 
+    a.data=10; 
+    a.next=&b; 
+    b.data=20; 
+    b.next=&c; 
+    c.data=30; 
+    c.next=NULL; 
+    cout<<"the value of a "<<a.data<<endl; 
+    cout<<"the value of b "<<a.next->data<<endl; 
+    cout<<"the value of c "<<b.next->data<<endl; 
+    return 0;
+} 
