@@ -1,0 +1,33 @@
+#include <iostream> 
+using namespace std; 
+class person { 
+    public : 
+    virtual  void introduce() { 
+          cout<<" hii from person "<<endl; 
+      } 
+}; 
+class student :public person { 
+    public : 
+      void introduce() { 
+          cout<<" hii from student "<<endl; 
+      } 
+}; 
+class gstudent : public student{ 
+        public : 
+      void introduce() { 
+          cout<<" hii from gstudent "<<endl; 
+      } 
+}; 
+void whoisthis(person &p){ 
+    p.introduce(); 
+} 
+int main() 
+{ 
+    person anil; 
+    student aman; 
+    gstudent amaneep; 
+    whoisthis(anil); 
+     whoisthis(aman); 
+      whoisthis(amaneep); 
+    return 0; 
+} 
