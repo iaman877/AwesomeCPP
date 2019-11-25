@@ -1,0 +1,54 @@
+/*Write an interactive program to compute different roots of a Quadratic Equation. While computing square root of a number 
+the input value must be tested for validity. If it is negative,the catch block of the user-defined exception class object 
+should be made to handle the exception promptly apart from the other catch blocks.  */
+/* ------------------------------------------------------------------------------------------------------------- */
+#include<iostream>
+#include<math.h>
+using namespace std;
+
+void roots();
+
+class sqrt_exception:public exception
+{
+	public:
+	const char* what()
+	{
+		return "D is negative";
+	}
+	void handle()
+	{
+		roots();
+	}
+};
+
+void roots()
+{
+	int a,b,c,d;
+	float r1,r2;
+	cout<<"\nEnter the coefficient of equation ";
+	cin>>a>>b>>c;
+	d*=sqrt((b*b)-(4*a*c));
+	try
+	{	
+		if(d<0)
+			throw sqrt_exception();
+		else
+		{
+			r1=(-b-sqrt(d))/(2*a);
+			r2=(-b+sqrt(d))/(2*a);
+		    cout<<"roots are ";
+		    cout<<r1<<r2;
+		}
+	}
+	catch(sqrt_exception e)
+	{
+		clog<<e.what();
+		e.handle();
+	}
+}
+
+int main()
+{
+	roots();
+	return 0;
+}
