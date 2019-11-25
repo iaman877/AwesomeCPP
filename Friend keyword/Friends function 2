@@ -17,7 +17,7 @@ class Human
         } 
  friend void display(Human man); 
 }; 
-void display(Human man)                 // syntax   of freiend function 
+void display(Human man)                      // syntax of friend function 
   { 
       cout<<man.name<<endl<<man.age<<endl; 
   } 
