@@ -28,8 +28,8 @@ void recoverArray(int input[], int n, int output[]) {
 }
 
 int main() {
-	int input[100];
-	int n;
+	 int input[100];
+	  int n;
 
 	int output[100];
 
