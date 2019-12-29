@@ -15,6 +15,6 @@ for(i=0; n>0; i++)
   cout<<"Binary of the given number= ";    
 for(i=i-1 ;i>=0 ;i--)    
  {    
-  cout<<a[i];    
+   cout<<a[i];    
  }    
 }  
