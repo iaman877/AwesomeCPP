@@ -8,7 +8,7 @@
 using namespace std;
     int i;
 string R(string s){
-   string b;
+   string b;               // string b =""; for multiple spaces
     for(i = 0; s[i] != '\0'; i++){
         if(s[i] == ' '){
             continue;
