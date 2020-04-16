@@ -9,3 +9,20 @@ Welcome to 30 Days of Code!
 ## Sample Output
 Hello, World. 
 Welcome to 30 Days of Code!
+
+```
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+int main() 
+{
+   char inputstring[40];
+   cout<<"Hello, World.\n"; 
+   gets(inputstring);
+   cout<<inputstring;
+return 0;
+}
+```
