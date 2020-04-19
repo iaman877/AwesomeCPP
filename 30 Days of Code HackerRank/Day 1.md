@@ -23,7 +23,7 @@ Print the sum of both integers on the first line, the sum of both doubles (scale
 * 4.0
 * is the best place to learn and practice coding!
 
-# Sample Output
+## Sample Output
 
 * 16
 * 8.0
