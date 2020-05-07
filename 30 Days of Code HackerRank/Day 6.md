@@ -2,29 +2,32 @@
 
 
 ```
-import java.util.*;
+#include <iostream>
 
-public class Solution {
+using namespace std;
 
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        int testCases = scan.nextInt();
-        for(int i = 0; i < testCases; i++){
-            char[] inputString = scan.next().toCharArray();
-			
-            // Print even chars
-            for(int j = 0; j < inputString.length; j += 2){
-                System.out.print(inputString[j]);
-            }
-            System.out.print(" ");
-            
-            // Print odd chars
-            for(int j = 1; j < inputString.length; j += 2){
-                System.out.print(inputString[j]);
-            }
-            System.out.println();
+int main() {
+    int N;
+    cin >> N;
+
+    for (int i = 0; i < N; i++) {
+        string str;
+        cin >> str;
+
+        for (int j = 0; j < str.length(); j++) {
+            if (j % 2 == 0) cout << str[j];
         }
-        scan.close();
+
+        cout << " ";
+
+        for (int j = 0; j < str.length(); j++) {
+            if (j % 2 != 0) cout << str[j];
+        }
+
+        cout << endl;
     }
+
+    return 0;
 }
+
 ```
