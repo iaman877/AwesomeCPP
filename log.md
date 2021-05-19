@@ -1,4 +1,4 @@
-#  Run C++ program on terminal using gcc compiler 
+#  Run C++ program on terminal using gcc compiler.
 1. Open linux terminal/ WSL cmd
 2. install gcc 
    1.  $ sudo apt-get install build-essential 
